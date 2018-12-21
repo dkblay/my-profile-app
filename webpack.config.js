@@ -12,7 +12,7 @@ const browserConfig = {
     publicPath: "/"
   },
   module: {
-    rules: [{ test: /\.(js)$/, use: "babel-loader" }]
+    rules: [{ test: /\.(js)$/, use: "babel-loader", exclude: /node_modules/ }]
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -25,6 +25,7 @@ const serverConfig = {
   mode: "development",
   entry: "./src/server/index.js",
   target: "node",
+  devtool: "source-map",
   externals: [nodeExternals()],
   output: {
     path: __dirname,
@@ -32,7 +33,7 @@ const serverConfig = {
     publicPath: "/"
   },
   module: {
-    rules: [{ test: /\.(js)$/, use: "babel-loader" }]
+    rules: [{ test: /\.(js)$/, use: "babel-loader", exclude: /node_modules/ }]
   },
   plugins: [
     new webpack.DefinePlugin({

@@ -1,5 +1,7 @@
-import Home from "./Home";
-import Profile from "./Profile";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
+
+import { getUserImage } from "./api";
 
 const routes = [
   {
@@ -9,7 +11,8 @@ const routes = [
   },
   {
     path: "/profile",
-    component: Profile
+    component: Profile,
+    fetchInitialData: getUserImage
   }
 ];
 

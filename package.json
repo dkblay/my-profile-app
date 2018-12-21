@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w & nodemon server.js",
+    "start": "webpack -w & nodemon --inspect server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,7 +16,8 @@
       "react"
     ],
     "plugins": [
-      "transform-object-rest-spread"
+      "transform-object-rest-spread",
+      "transform-runtime"
     ]
   },
   "devDependencies": {
@@ -45,8 +46,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-jwt": "^5.3.1",
+    "express-session": "^1.15.6",
     "isomorphic-fetch": "^2.2.1",
     "jsonwebtoken": "^8.4.0",
     "passport": "^0.4.0",
