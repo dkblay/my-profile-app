@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.route("/facebook").get(
   passport.authenticate("facebook", {
-    scope: ["email", "user_posts", "user_photos"]
+    scope: ["email", "user_posts", "user_photos", "user_friends"]
   })
 );
 router.route("/facebook/callback").get(

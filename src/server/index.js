@@ -8,8 +8,9 @@ import { StaticRouter, matchPath } from "react-router-dom";
 import App from "../shared/components/App";
 import routes from "../shared/routes";
 import passportConfig from "./config/passport-config";
-import authRoutes from "./routes/auth";
-import apiRoutes from "./routes/api";
+import authRoutes from "./routes/auth-routes";
+import apiRoutes from "./routes/api-routes";
+import { join } from "path";
 
 const app = express();
 app.set("view engine", "ejs");
@@ -20,14 +21,19 @@ app.use(session({ secret: "anything" }));
 passportConfig(app);
 
 app.use(express.static("public"));
+app.use(express.static(join("node_modules/bootstrap/dist")));
+
 app.use("/auth", authRoutes);
 app.use("/api", apiRoutes);
 
 app.get(["/", "/profile"], async (req, res, next) => {
+  if (req.url.includes("profile") && !req.user) {
+    return res.redirect("/");
+  }
   const activeRoute = routes.find(route => matchPath(req.url, route)) || {};
   const fetchInitialData = activeRoute.fetchInitialData
-    ? activeRoute.fetchInitialData(req.user.token)
-    : Promise.resolve();
+    ? activeRoute.fetchInitialData(req.user)
+    : Promise.resolve({});
 
   const context = await fetchInitialData;
 

@@ -15,12 +15,8 @@ export default () => {
       async (req, accessToken, refreshToken, profile, done) => {
         const user = {};
 
-        // user.email = profile.emails[0].value;
-        // //user.image = profile._json.image.url;
-        // user.displayName = profile.displayName;
-
+        user.displayName = profile.displayName;
         user.facebook = {};
-        // user.facebook.id = profile.id;
         user.token = accessToken;
 
         done(null, user);

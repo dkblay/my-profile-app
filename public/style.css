@@ -1,0 +1,36 @@
+.profile__head {
+  flex-direction: column;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile__image {
+  border-radius: 100px;
+  margin-right: 20px;
+}
+
+.profile__info {
+  text-align: center;
+}
+
+.profile__feeds {
+  margin-top: 40px;
+}
+
+.btn__view:disabled {
+  color: #c0c4cc;
+  background-color: #fff;
+  cursor: not-allowed;
+}
+
+@media (min-width: 576px) {
+  .profile__head {
+    flex-direction: row;
+  }
+
+  .profile__info {
+    text-align: left;
+  }
+}

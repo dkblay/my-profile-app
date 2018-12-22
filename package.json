@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w & nodemon --inspect server.js",
+    "start": "webpack -w --env development & nodemon server.js",
+    "prod": "webpack -w --env development & node server.js",
+    "debug": "webpack -w --env development & nodemon --inspect server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,7 +19,8 @@
     ],
     "plugins": [
       "transform-object-rest-spread",
-      "transform-runtime"
+      "transform-runtime",
+      "transform-class-properties"
     ]
   },
   "devDependencies": {
@@ -28,6 +31,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^5.10.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-react-app": "^3.0.5",
@@ -45,6 +49,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.3",
     "cors": "^2.8.5",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
