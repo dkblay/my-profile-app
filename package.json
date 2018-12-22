@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w --env development & node ./server.js",
-    "dev": "webpack -w --env development & nodemon server.js",
+    "start": "webpack -w --env development & nodemon server.js",
+    "prod": "webpack -w --env production & node server.js",
     "debug": "webpack -w --env development & nodemon --inspect server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
