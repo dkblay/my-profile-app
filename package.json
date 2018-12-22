@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "webpack -w --env development & nodemon server.js",
     "build": "webpack --env production",
     "serve:prod": "node ./server.js",
     "debug": "webpack -w --env development & nodemon --inspect server.js",
