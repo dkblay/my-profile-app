@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Home extends Component {
   signIn() {
-    window.location.href = "http://localhost:3000/auth/facebook";
+    window.location.href = `${window.location.host}/auth/facebook`;
   }
 
   render() {
