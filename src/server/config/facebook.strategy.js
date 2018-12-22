@@ -7,9 +7,9 @@ export default () => {
   passport.use(
     new Facebookstrategy(
       {
-        clientID: "1438421969807164",
-        clientSecret: "63b04c2fc7eeca2241070aa3428aa96f",
-        callbackURL: "http://localhost:3000/auth/facebook/callback",
+        clientID: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        callbackURL: `${process.env.APP_DOMAIN}/auth/facebook/callback`,
         passReqToCallback: true
       },
       async (req, accessToken, refreshToken, profile, done) => {

@@ -11,7 +11,7 @@ router.route("/facebook").get(
 router.route("/facebook/callback").get(
   passport.authenticate("facebook", {
     successRedirect: "/profile",
-    failureRedirect: "/error"
+    failureRedirect: "/"
   })
 );
 export default router;

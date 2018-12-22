@@ -11,12 +11,15 @@ import passportConfig from "./config/passport-config";
 import authRoutes from "./routes/auth-routes";
 import apiRoutes from "./routes/api-routes";
 import { join } from "path";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(session({ secret: "anything" }));
+app.use(session({ secret: process.env.SESSION_SECRET }));
 
 passportConfig(app);
 
