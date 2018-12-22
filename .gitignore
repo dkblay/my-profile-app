@@ -28,5 +28,5 @@ yarn-error.log*
 
 
 # Others
-public/bundle.*
-server.*
+# public/bundle.*
+# server.*

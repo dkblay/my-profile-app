@@ -1,1 +1,1 @@
-web: webpack -w --env development & nodemon server.js
+web: node ./server.js
